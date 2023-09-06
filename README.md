@@ -1,4 +1,4 @@
-# MEVN Stack Boilerplate with Vue 3, Pinia, Vue Router 4, Express, MongoDB, and Docker Compose
+# MEVN (Typescript) Stack Boilerplate with Vue 3, Pinia, Vue Router 4, Express, MongoDB, and Docker Compose
 
 ![MEVN Stack](https://img.shields.io/badge/MEVN-Stack-brightgreen.svg)
 ![Vue](https://img.shields.io/badge/Vue-3.x-green.svg)
@@ -63,33 +63,27 @@ Follow these steps to get the MEVN stack boilerplate up and running:
 1. Clone the repository:
 
    ```shell
-   git clone https://github.com/yourusername/your-repo.git
+   git clone https://github.com/briceallard/MEVN-Boiler.git
    ```
 
 2. Change directory to the project folder:
 
    ```shell
-   cd your-repo
+   cd MEVN-Boiler
    ```
 
 3. Install server dependencies:
 
    ```shell
-   cd server
-   npm install
+   cd api
+   docker-compose up
    ```
 
 4. Install client dependencies:
 
    ```shell
    cd ../client
-   npm install
-   ```
-
-5. Return to the project root directory:
-
-   ```shell
-   cd ..
+   docker-compose up
    ```
 
 ## Project Structure
@@ -97,7 +91,7 @@ Follow these steps to get the MEVN stack boilerplate up and running:
 The project is structured as follows:
 
 - `client`: Vue 3 front-end application.
-- `server`: Express.js back-end API server.
+- `api`: Express.js back-end API server.
 - `docker-compose.yml`: Docker Compose configuration file.
 - `README.md`: This README file.
 - `LICENSE`: The license file.
@@ -106,11 +100,9 @@ Feel free to modify the project structure to suit your application's needs.
 
 ## Configuration
 
-- Server configuration: You can configure the server settings in the `server/config.js` file.
+- Server configuration: You can configure the server settings in the `api/src/server.ts` file.
 
-- Client configuration: Modify the client settings in the `client/src/config.js` file.
-
-- MongoDB configuration: Update the MongoDB connection string in the `server/config.js` file.
+- MongoDB configuration: Update the MongoDB connection string in the `api/src/config/db.config.ts` file.
 
 ## Development
 
