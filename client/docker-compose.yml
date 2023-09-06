@@ -1,13 +1,13 @@
-version: "3"
+version: '3'
 services:
-  vueapp:
-    user: "node"
+  app:
+    user: 'node'
     image: node:20.4.0 # Use an official Node.js image
-    container_name: wfsoccer-client
+    container_name: app # Give a container name
     restart: unless-stopped
     working_dir: /app # Set working directory for the container
     volumes:
       - ./:/app # Map your Vue.js app directory
     ports:
-      - "8080:5173" # Map host port to container port
+      - '8080:5173' # Map host port to container port
     command: sh -c "npm i && npm run dev"
