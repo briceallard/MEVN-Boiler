@@ -26,6 +26,6 @@
         "strictBindCallApply": true
     },
     "include": [
-        "app/**/*",
+        "src/**/*",
     ],
 }

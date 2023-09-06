@@ -1,17 +1,17 @@
 version: "3"
 services:
-  backend:
+  express:
     image: node:20.4.0 # Use an official Node.js image
-    container_name: backend
+    container_name: express
     working_dir: /app
     volumes:
       - ./:/app # Map your Node.js app directory
     networks:
-      - mongodb
+      - dbnetwork
     ports:
       - "3000:3000" # Map host port to container port
     environment:
-      MONGODB_URI: mongodb://mongodb:27017/wfsoccer
+      MONGODB_URI: mongodb://mongodb:27017/
     command: npm run start:dev
     depends_on:
       - mongodb
@@ -20,13 +20,18 @@ services:
     image: mongo:latest # Use an official MongoDB image
     container_name: mongodb
     networks:
-      - mongodb
+      - dbnetwork
+    volumes:
+      - dbdata:/data/db # Create a volume to persist MongoDB data
     ports:
       - "27017:27017" # Map host port to container port
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: examplepassword
 
+volumes:
+  dbdata: # Create a volume to persist MongoDB data
+
 networks:
-  mongodb:
+  dbnetwork:
     driver: bridge
